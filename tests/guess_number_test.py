@@ -20,6 +20,13 @@ class GuessingNumberGameTest(unittest.TestCase):
 
         self.assertEqual(first_attempt, "Correct you won")
 
+    def test_another_successful_first_attempt_when_number_generated_is_three(self):
+        guess_number = GuessingNumberGame(3)
+
+        first_attempt = guess_number.guess_number(3)
+
+        self.assertEqual(first_attempt, "Correct you won")
+
     @staticmethod
     def small_guessed_number_provider():
         return (
