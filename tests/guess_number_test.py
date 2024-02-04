@@ -79,3 +79,13 @@ class GuessingNumberGameTest(unittest.TestCase):
         third_attempt = guess_number.guess_number(5)
 
         self.assertEqual(third_attempt, "Correct you won")
+
+    def test_can_not_play_a_fourth_attempt(self):
+        guess_number = GuessingNumberGame(5)
+
+        guess_number.guess_number(8)
+        guess_number.guess_number(7)
+        guess_number.guess_number(6)
+        fourth_attempt = guess_number.guess_number(5)
+
+        self.assertEqual(fourth_attempt, "You lose")

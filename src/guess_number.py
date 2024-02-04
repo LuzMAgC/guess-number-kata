@@ -9,10 +9,10 @@ class GuessingNumberGame:
     def guess_number(self, guessed_number: int) -> str:
         self.attempts += 1
 
-        if guessed_number == self.random_number:
+        if guessed_number == self.random_number and self.attempts <= 3:
             return "Correct you won"
 
-        if self.attempts == 3:
+        if self.attempts >= 3:
             return "You lose"
 
         if guessed_number < self.random_number:
