@@ -7,10 +7,10 @@ class GuessingNumberGame:
         self.random_number = random_number_generator
 
     def guess_number(self, guessed_number: int) -> str:
-        if self.attempts != 0:
-            return "You lose"
-
         self.attempts += 1
+
+        if self.attempts == 3:
+            return "You lose"
 
         if guessed_number < self.random_number:
             return "The number is higher"
