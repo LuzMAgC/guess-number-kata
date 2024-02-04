@@ -6,4 +6,6 @@ class GuessingNumberGame:
     def guess_number(self, guessed_number: int) -> str:
         if guessed_number == 1:
             return "The number is higher"
+        if guessed_number == 2:
+            return "The number is higher"
         return "Correct you won"
