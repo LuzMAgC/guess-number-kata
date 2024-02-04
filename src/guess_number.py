@@ -8,4 +8,6 @@ class GuessingNumberGame:
             return "The number is higher"
         if guessed_number == 10:
             return "The number is lower"
+        if guessed_number == 9:
+            return "The number is lower"
         return "Correct you won"
