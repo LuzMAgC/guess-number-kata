@@ -1,11 +1,13 @@
 import unittest
 
-from src.guess_number import GuessNumber
+from src.guess_number import GuessingNumberGame
 
 
-class GuessNumberTest(unittest.TestCase):
+class GuessingNumberGameTest(unittest.TestCase):
 
-    def test_setup_is_working(self):
-        guess_number = GuessNumber()
+    def test_a_successful_first_attempt(self):
+        guess_number = GuessingNumberGame(5)
 
-        self.assertTrue(guess_number.my_method())
+        first_attempt = guess_number.guess_number(5)
+
+        self.assertEqual(first_attempt, "Correct you won")
