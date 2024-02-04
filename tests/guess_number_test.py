@@ -29,23 +29,18 @@ class GuessingNumberGameTest(unittest.TestCase):
 
         self.assertEqual(first_attempt, "The number is higher")
 
-    def test_returns_the_number_is_lower_when_number_generated_is_five_and_guessed_number_is_ten(self):
+    @staticmethod
+    def high_guessed_number_provider():
+        return (
+            (10, ),
+            (9, ),
+            (8, ),
+        )
+
+    @data_provider(high_guessed_number_provider)
+    def test_returns_the_number_is_lower_when_number_generated_is_five_and_guessed_number_is_higher(self, guessed_number):
         guess_number = GuessingNumberGame(5)
 
-        first_attempt = guess_number.guess_number(10)
-
-        self.assertEqual(first_attempt, "The number is lower")
-
-    def test_returns_the_number_is_lower_when_number_generated_is_five_and_guessed_number_is_nine(self):
-        guess_number = GuessingNumberGame(5)
-
-        first_attempt = guess_number.guess_number(9)
-
-        self.assertEqual(first_attempt, "The number is lower")
-
-    def test_returns_the_number_is_lower_when_number_generated_is_five_and_guessed_number_is_eight(self):
-        guess_number = GuessingNumberGame(5)
-
-        first_attempt = guess_number.guess_number(8)
+        first_attempt = guess_number.guess_number(guessed_number)
 
         self.assertEqual(first_attempt, "The number is lower")
