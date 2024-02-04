@@ -1,6 +1,7 @@
 import unittest
 
 from src.guess_number import GuessingNumberGame
+from unittest_data_provider import data_provider
 
 
 class GuessingNumberGameTest(unittest.TestCase):
@@ -12,23 +13,19 @@ class GuessingNumberGameTest(unittest.TestCase):
 
         self.assertEqual(first_attempt, "Correct you won")
 
-    def test_returns_the_number_is_higher_when_number_generated_is_five_and_guessed_number_is_one(self):
+    @staticmethod
+    def small_guessed_number_provider():
+        return (
+            (1, ),
+            (2, ),
+            (3, ),
+        )
+
+    @data_provider(small_guessed_number_provider)
+    def test_returns_the_number_is_higher_when_number_generated_is_five_and_guessed_number_is_lower(self, guessed_number):
         guess_number = GuessingNumberGame(5)
 
-        first_attempt = guess_number.guess_number(1)
+        first_attempt = guess_number.guess_number(guessed_number)
 
         self.assertEqual(first_attempt, "The number is higher")
 
-    def test_returns_the_number_is_higher_when_number_generated_is_five_and_guessed_number_is_two(self):
-        guess_number = GuessingNumberGame(5)
-
-        first_attempt = guess_number.guess_number(2)
-
-        self.assertEqual(first_attempt, "The number is higher")
-
-    def test_returns_the_number_is_higher_when_number_generated_is_five_and_guessed_number_is_three(self):
-        guess_number = GuessingNumberGame(5)
-
-        first_attempt = guess_number.guess_number(3)
-
-        self.assertEqual(first_attempt, "The number is higher")
