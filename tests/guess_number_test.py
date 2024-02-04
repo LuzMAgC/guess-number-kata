@@ -70,3 +70,12 @@ class GuessingNumberGameTest(unittest.TestCase):
         second_attempt = guess_number.guess_number(6)
 
         self.assertEqual(second_attempt, "The number is lower")
+
+    def test_returns_you_won_after_guessing_number_on_third_attempt(self):
+        guess_number = GuessingNumberGame(5)
+
+        guess_number.guess_number(8)
+        guess_number.guess_number(7)
+        third_attempt = guess_number.guess_number(5)
+
+        self.assertEqual(third_attempt, "Correct you won")
